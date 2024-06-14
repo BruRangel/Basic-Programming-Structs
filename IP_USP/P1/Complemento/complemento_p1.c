@@ -1,0 +1,33 @@
+#include <stdio.h>
+#define TRUE 1
+#define FALSE 0
+
+// observação: estou considerando anos negativos, pois existam datas antes de cristo, logo creio que faz sentido.
+
+void main() {
+    int dia, mes, ano, valido = TRUE;
+    printf("Digite uma data (DD/MM/AAAA): ");
+    scanf("%d/%d/%d", &dia, &mes, &ano);
+    if (dia > 31 || dia < 1 || mes > 12 || mes < 1) {
+        valido = FALSE;
+    }
+    if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
+        valido = FALSE;
+    }
+    if (ano % 4 == 0) {
+        if(mes == 2 && dia > 29) {
+            valido = FALSE;
+        }
+    }
+    else {
+        if(mes == 2 && dia > 28) {
+            valido = FALSE;
+        }
+    }
+    if (valido == TRUE) {
+        printf("A data e valida");
+    }
+    else {
+        printf("A data nao e valida");
+    }
+}

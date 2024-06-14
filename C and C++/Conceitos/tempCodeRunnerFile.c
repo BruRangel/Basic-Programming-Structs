@@ -1,0 +1,2 @@
+
+    addNodeFinal(&head, 3);
