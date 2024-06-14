@@ -1,6 +1,6 @@
 #include <math.h>
 #include <stdio.h>
-
+//teste
 float a;
 float b;
 float c;
