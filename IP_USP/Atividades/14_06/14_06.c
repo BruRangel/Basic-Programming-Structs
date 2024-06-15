@@ -74,27 +74,37 @@ void menorColuna(int linhas, int colunas, int matriz[linhas][colunas]) {
     }
 }
 
-void maiorElemento() {
+void maiorElemento(int linhas, int colunas, int matriz[linhas][colunas]) {
+    int maior = matriz[0][0], linha = 0, coluna = 0;
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            if (matriz[i][j] > maior) {
+                maior = matriz[i][j];
+                linha = i;
+                coluna = j;
+            }
+        }
+    }
+    printf("O maior elemento e: %d, na linha: %d e coluna: %d", maior, linha, coluna);
+}
+
+void menorElemento(int linhas, int colunas, int matriz[linhas][colunas]) {
 
 }
 
-void menorElemento() {
+void somaLinhas(int linhas, int colunas, int matriz[linhas][colunas]) {
 
 }
 
-void somaLinhas() {
+void somaColunas(int linhas, int colunas, int matriz[linhas][colunas]) {
 
 }
 
-void somaColunas() {
+void maiorSomaLinha(int linhas, int colunas, int matriz[linhas][colunas]) {
 
 }
 
-void maiorSomaLinha() {
-
-}
-
-void maiorSomaColuna() {
+void maiorSomaColuna(int linhas, int colunas, int matriz[linhas][colunas]) {
 
 }
 
@@ -128,6 +138,7 @@ void main() {
     menorLinha(linhas_m1, colunas_m1, matriz_m1);
     maiorColuna(linhas_m1, colunas_m1, matriz_m1);
     menorColuna(linhas_m1, colunas_m1, matriz_m1);
+    maiorElemento(linhas_m1, colunas_m1, matriz_m1);
 
     int linhas_m2;
     int colunas_m2;
