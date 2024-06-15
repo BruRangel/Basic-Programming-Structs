@@ -74,6 +74,30 @@ void menorColuna(int linhas, int colunas, int matriz[linhas][colunas]) {
     }
 }
 
+void maiorElemento() {
+
+}
+
+void menorElemento() {
+
+}
+
+void somaLinhas() {
+
+}
+
+void somaColunas() {
+
+}
+
+void maiorSomaLinha() {
+
+}
+
+void maiorSomaColuna() {
+
+}
+
 void multiMatriz(int linhas_m1, int colunas_m1, int matriz_m1[linhas_m1][colunas_m1],
                 int linhas_m2, int colunas_m2, int matriz_m2[linhas_m2][colunas_m2],
                 int matriz_produto[linhas_m1][colunas_m2]) {  
