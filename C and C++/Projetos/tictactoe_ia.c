@@ -6,14 +6,14 @@
 void resetBoard();
 void printBoard();
 int checkFreeSpaces();
-void playerMove();
-void computerMove();
+void player1Move();
+void player2Move();
 char checkWinner();
 void printWinner(char);
 
 char board[3][3];
-const char PLAYER = 'X';
-const char COMPUTER = 'O';
+const char PLAYER1 = 'X';
+const char PLAYER2 = 'O';
 
 int main()
 {
@@ -25,14 +25,14 @@ int main()
     {
         printBoard();
 
-        playerMove();
+        player1Move();
         winner = checkWinner();
         if (winner != ' ' || checkFreeSpaces() == 0)
         {
             break;
         }
 
-        computerMove();
+        player2Move();
         winner = checkWinner();
         if (winner != ' ' || checkFreeSpaces() == 0)
         {
@@ -84,7 +84,7 @@ int checkFreeSpaces()
     return freeSpaces;
 }
 
-void playerMove()
+void player1Move()
 {
     int x;
     int y;
@@ -105,13 +105,13 @@ void playerMove()
         }
         else
         {
-            board[x][y] = PLAYER;
+            board[x][y] = PLAYER1;
             break;
         }
     } while (board[x][y] != ' ');
 }
 
-void computerMove()
+void player2Move()
 {
     int x, y;
 
@@ -122,8 +122,8 @@ void computerMove()
         {
             if (board[x][y] == ' ')
             {
-                board[x][y] = COMPUTER;
-                if (checkWinner() == COMPUTER)
+                board[x][y] = PLAYER2;
+                if (checkWinner() == PLAYER2)
                 {
                     return;
                 }
@@ -139,10 +139,10 @@ void computerMove()
         {
             if (board[x][y] == ' ')
             {
-                board[x][y] = PLAYER;
-                if (checkWinner() == PLAYER)
+                board[x][y] = PLAYER1;
+                if (checkWinner() == PLAYER1)
                 {
-                    board[x][y] = COMPUTER; // Block player's winning move
+                    board[x][y] = PLAYER2; // Block player's winning move
                     return;
                 }
                 board[x][y] = ' '; // Undo the move
@@ -158,7 +158,7 @@ void computerMove()
         y = rand() % 3;
     } while (board[x][y] != ' ');
 
-    board[x][y] = COMPUTER;
+    board[x][y] = PLAYER2;
 }
 
 char checkWinner()
@@ -196,11 +196,11 @@ char checkWinner()
 
 void printWinner(char winner)
 {
-    if (winner == PLAYER)
+    if (winner == PLAYER1)
     {
         printf("You win!");
     }
-    else if (winner == COMPUTER)
+    else if (winner == PLAYER2)
     {
         printf("You lose!");
     }

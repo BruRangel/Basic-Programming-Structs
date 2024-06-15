@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <time.h>
 
 void resetBoard();
 void printBoard();
@@ -31,6 +30,8 @@ int main()
         {
             break;
         }
+        
+    printBoard();
 
         player2Move();
         winner = checkWinner();
@@ -114,25 +115,29 @@ void player1Move()
 
 void player2Move()
 {
-    // creates a seed based on current time
-    srand(time(0));
     int x;
     int y;
 
-    if(checkFreeSpaces() > 0)
+    do
     {
-        do
+        printf("Enter the row number (1-3): \n");
+        scanf("%d", &x);
+        x--;
+
+        printf("Enter the column number (1-3): \n");
+        scanf("%d", &y);
+        y--;
+
+        if(board[x][y] != ' ')
         {
-            x = rand() % 3;
-            y = rand() % 3;
-        } while (board[x][y] != ' ');
-        
-        board[x][y] = PLAYER2;
-    }
-    else
-    {
-        printWinner(' ');
-    }
+            printf("Invalid move.\n");
+        }
+        else
+        {
+            board[x][y] = PLAYER1;
+            break;
+        }
+    } while (board[x][y] != ' ');
 }
 
 char checkWinner()
@@ -172,11 +177,11 @@ void printWinner(char winner)
 {
     if(winner = PLAYER1)
     {
-        printf("You win!");
+        printf("Player 1 wins!");
     }
     else if(winner == PLAYER2)
     {
-        printf("You lose!");
+        printf("Player 2 wins!");
     }
     else
     {
