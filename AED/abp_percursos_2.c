@@ -11,3 +11,7 @@ typedef struct No {
 
 typedef No *Pont;
 
+typedef struct Pilha {
+    Pont topo;
+} Pilha;
+
